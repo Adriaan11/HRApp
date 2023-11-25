@@ -1,0 +1,1832 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="EngineeringClubHRModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Additions">
+          <Key>
+            <PropertyRef Name="additionID" />
+          </Key>
+          <Property Name="additionID" Type="int" Nullable="false" />
+          <Property Name="payrollID" Type="int" />
+          <Property Name="additionType" Type="nvarchar" MaxLength="50" />
+          <Property Name="amount" Type="money" />
+          <Property Name="description" Type="nvarchar" MaxLength="255" />
+          <Property Name="additionDate" Type="date" />
+        </EntityType>
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="clientID" />
+          </Key>
+          <Property Name="clientID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="clientType" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="organizationName" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="firstName" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="middleName" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="lastName" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="phoneNumber" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="address" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="city" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="state" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="postalCode" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="country" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="industry" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="contactPerson" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="contactPersonEmail" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="contactPersonPhone" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Deductions">
+          <Key>
+            <PropertyRef Name="deductionID" />
+          </Key>
+          <Property Name="deductionID" Type="int" Nullable="false" />
+          <Property Name="payrollID" Type="int" />
+          <Property Name="deductionType" Type="nvarchar" MaxLength="50" />
+          <Property Name="amount" Type="money" />
+          <Property Name="description" Type="nvarchar" MaxLength="255" />
+          <Property Name="deductionDate" Type="date" />
+        </EntityType>
+        <EntityType Name="Employees">
+          <Key>
+            <PropertyRef Name="employeeID" />
+          </Key>
+          <Property Name="employeeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="payrollID" Type="int" Nullable="false" />
+          <Property Name="managerID" Type="int" Nullable="false" />
+          <Property Name="clientID" Type="int" Nullable="false" />
+          <Property Name="firstName" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="middleName" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="lastName" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="preferredName" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="gender" Type="varchar" MaxLength="10" />
+          <Property Name="dateOfBirth" Type="datetime" Nullable="false" />
+          <Property Name="identificationNumber" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="maritalStatus" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="nationality" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="emailAddress" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="phoneNumber" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="emergencyContactName" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="emergencyContactPhone" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="emergencyContactRelationship" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="position" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="jobTitle" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="department" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="hireDate" Type="datetime" Nullable="false" />
+          <Property Name="terminationDate" Type="datetime" />
+          <Property Name="employmentStatus" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="employmentType" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="workHoursPerWeek" Type="int" Nullable="false" />
+          <Property Name="salary" Type="float" Nullable="false" />
+          <Property Name="hourlyRate" Type="float" Nullable="false" />
+          <Property Name="address" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="city" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="state" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="postalCode" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="country" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="officeLocation" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="profilePicture" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="active" Type="bit" Nullable="false" />
+          <Property Name="OvertimeRate" Type="decimal" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityType Name="Expense">
+          <Key>
+            <PropertyRef Name="expenseID" />
+          </Key>
+          <Property Name="expenseID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="employeeID" Type="int" />
+          <Property Name="approverID" Type="int" />
+          <Property Name="description" Type="nvarchar" MaxLength="255" />
+          <Property Name="amount" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="expenseDate" Type="datetime" />
+          <Property Name="statusID" Type="int" />
+        </EntityType>
+        <EntityType Name="Gender">
+          <Key>
+            <PropertyRef Name="GenderID" />
+          </Key>
+          <Property Name="GenderID" Type="int" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GrievanceLogs">
+          <Key>
+            <PropertyRef Name="LogID" />
+          </Key>
+          <Property Name="LogID" Type="int" Nullable="false" />
+          <Property Name="GrievanceID" Type="int" Nullable="false" />
+          <Property Name="LogDescription" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="LogDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Grievances">
+          <Key>
+            <PropertyRef Name="GrievanceID" />
+          </Key>
+          <Property Name="GrievanceID" Type="int" Nullable="false" />
+          <Property Name="EmployeeID" Type="int" Nullable="false" />
+          <Property Name="GrievanceDescription" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="SubmissionDate" Type="datetime" Nullable="false" />
+          <Property Name="StatusID" Type="int" Nullable="false" />
+          <Property Name="PerpetratorID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GrievanceStatus">
+          <Key>
+            <PropertyRef Name="StatusID" />
+          </Key>
+          <Property Name="StatusID" Type="int" Nullable="false" />
+          <Property Name="StatusName" Type="nvarchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Leave">
+          <Key>
+            <PropertyRef Name="leaveID" />
+          </Key>
+          <Property Name="leaveID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="employeeID" Type="int" />
+          <Property Name="approverID" Type="int" />
+          <Property Name="leaveType" Type="nvarchar" MaxLength="50" />
+          <Property Name="startDate" Type="datetime" />
+          <Property Name="endDate" Type="datetime" />
+          <Property Name="statusID" Type="int" />
+          <Property Name="leaveTypeID" Type="int" />
+        </EntityType>
+        <EntityType Name="LeaveTypes">
+          <Key>
+            <PropertyRef Name="leaveTypeID" />
+          </Key>
+          <Property Name="leaveTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="leaveTypeName" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Manager">
+          <Key>
+            <PropertyRef Name="managerID" />
+          </Key>
+          <Property Name="managerID" Type="int" Nullable="false" />
+          <Property Name="employeeID" Type="int" Nullable="false" />
+          <Property Name="managerFirstName" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="managerLastName" Type="nvarchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Payrolls">
+          <Key>
+            <PropertyRef Name="payrollID" />
+          </Key>
+          <Property Name="payrollID" Type="int" Nullable="false" />
+          <Property Name="employeeID" Type="int" />
+          <Property Name="payPeriodStart" Type="date" />
+          <Property Name="payPeriodEnd" Type="date" />
+          <Property Name="totalHoursWorked" Type="float" />
+          <Property Name="totalOvertimeWorked" Type="float" />
+        </EntityType>
+        <EntityType Name="Scheduling">
+          <Key>
+            <PropertyRef Name="scheduleID" />
+          </Key>
+          <Property Name="scheduleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="clientID" Type="int" Nullable="false" />
+          <Property Name="employeeID" Type="int" Nullable="false" />
+          <Property Name="taskDescription" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="startDate" Type="datetime" Nullable="false" />
+          <Property Name="endDate" Type="datetime" Nullable="false" />
+          <Property Name="duration" Type="int" Nullable="false" />
+          <Property Name="repeatWeekly" Type="bit" />
+        </EntityType>
+        <EntityType Name="Status">
+          <Key>
+            <PropertyRef Name="statusID" />
+          </Key>
+          <Property Name="statusID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="statusDescription" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TaskAttachments">
+          <Key>
+            <PropertyRef Name="AttachmentId" />
+          </Key>
+          <Property Name="AttachmentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TaskId" Type="int" />
+          <Property Name="DocumentPath" Type="nvarchar(max)" />
+          <Property Name="UploadedBy" Type="int" />
+          <Property Name="UploadedAt" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TaskComments">
+          <Key>
+            <PropertyRef Name="CommentId" />
+          </Key>
+          <Property Name="CommentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TaskId" Type="int" />
+          <Property Name="CommentText" Type="nvarchar(max)" />
+          <Property Name="CommentedBy" Type="int" />
+          <Property Name="CommentedAt" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TaskNotifications">
+          <Key>
+            <PropertyRef Name="NotificationId" />
+          </Key>
+          <Property Name="NotificationId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TaskId" Type="int" />
+          <Property Name="NotifiedTo" Type="int" />
+          <Property Name="NotificationText" Type="nvarchar(max)" />
+          <Property Name="IsRead" Type="bit" />
+          <Property Name="SentAt" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TaskReports">
+          <Key>
+            <PropertyRef Name="ReportId" />
+          </Key>
+          <Property Name="ReportId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GeneratedBy" Type="int" />
+          <Property Name="ReportContent" Type="nvarchar(max)" />
+          <Property Name="GeneratedAt" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Tasks">
+          <Key>
+            <PropertyRef Name="TaskId" />
+          </Key>
+          <Property Name="TaskId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="DueDate" Type="datetime" />
+          <Property Name="PriorityLevel" Type="nvarchar" MaxLength="50" />
+          <Property Name="Status" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="AssignedTo" Type="int" />
+          <Property Name="DependsOn" Type="int" />
+          <Property Name="CreatedAt" Type="datetime" />
+          <Property Name="UpdatedAt" Type="datetime" />
+          <Property Name="ClientID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TeamChat">
+          <Key>
+            <PropertyRef Name="chatID" />
+          </Key>
+          <Property Name="chatID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="senderID" Type="int" Nullable="false" />
+          <Property Name="message" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="timestamp" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TimeSchedule">
+          <Key>
+            <PropertyRef Name="scheduleID" />
+          </Key>
+          <Property Name="scheduleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="employeeID" Type="int" Nullable="false" />
+          <Property Name="managerID" Type="int" Nullable="false" />
+          <Property Name="startTime" Type="datetime" Nullable="false" />
+          <Property Name="endTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="WorkflowTable">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmployeeID" Type="int" Nullable="false" />
+          <Property Name="EmployeeFirstName" Type="nvarchar" MaxLength="50" />
+          <Property Name="EmployeeLastName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ManagerID" Type="int" />
+          <Property Name="ManagerFirstName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ManagerLastName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ApplicationType" Type="nvarchar" MaxLength="50" />
+          <Property Name="LeaveOrExpenseID" Type="int" />
+          <Property Name="ApplicationDate" Type="date" />
+          <Property Name="ApprovalStatusID" Type="int" />
+          <Property Name="ApprovalStatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="ManagerActionDate" Type="date" />
+          <Property Name="Comments" Type="nvarchar(max)" />
+        </EntityType>
+        <Association Name="FK__Additions__payro__6B24EA82">
+          <End Role="Payrolls" Type="Self.Payrolls" Multiplicity="0..1" />
+          <End Role="Additions" Type="Self.Additions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Payrolls">
+              <PropertyRef Name="payrollID" />
+            </Principal>
+            <Dependent Role="Additions">
+              <PropertyRef Name="payrollID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Deduction__payro__6C190EBB">
+          <End Role="Payrolls" Type="Self.Payrolls" Multiplicity="0..1" />
+          <End Role="Deductions" Type="Self.Deductions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Payrolls">
+              <PropertyRef Name="payrollID" />
+            </Principal>
+            <Dependent Role="Deductions">
+              <PropertyRef Name="payrollID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Expense__approve__6D0D32F4">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
+          <End Role="Expense" Type="Self.Expense" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="employeeID" />
+            </Principal>
+            <Dependent Role="Expense">
+              <PropertyRef Name="approverID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Expense__employe__6E01572D">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
+          <End Role="Expense" Type="Self.Expense" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="employeeID" />
+            </Principal>
+            <Dependent Role="Expense">
+              <PropertyRef Name="employeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Expense__statusI__6EF57B66">
+          <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
+          <End Role="Expense" Type="Self.Expense" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="statusID" />
+            </Principal>
+            <Dependent Role="Expense">
+              <PropertyRef Name="statusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Leave__approverI__73BA3083">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
+          <End Role="Leave" Type="Self.Leave" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="employeeID" />
+            </Principal>
+            <Dependent Role="Leave">
+              <PropertyRef Name="approverID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Leave__employeeI__74AE54BC">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
+          <End Role="Leave" Type="Self.Leave" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="employeeID" />
+            </Principal>
+            <Dependent Role="Leave">
+              <PropertyRef Name="employeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Leave__statusID__75A278F5">
+          <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
+          <End Role="Leave" Type="Self.Leave" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="statusID" />
+            </Principal>
+            <Dependent Role="Leave">
+              <PropertyRef Name="statusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Payrolls__employ__778AC167">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
+          <End Role="Payrolls" Type="Self.Payrolls" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="employeeID" />
+            </Principal>
+            <Dependent Role="Payrolls">
+              <PropertyRef Name="employeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Schedulin__clien__160F4887">
+          <End Role="Client" Type="Self.Client" Multiplicity="1" />
+          <End Role="Scheduling" Type="Self.Scheduling" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="clientID" />
+            </Principal>
+            <Dependent Role="Scheduling">
+              <PropertyRef Name="clientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Schedulin__emplo__17036CC0">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="1" />
+          <End Role="Scheduling" Type="Self.Scheduling" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="employeeID" />
+            </Principal>
+            <Dependent Role="Scheduling">
+              <PropertyRef Name="employeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TaskAttac__TaskI__787EE5A0">
+          <End Role="Tasks" Type="Self.Tasks" Multiplicity="0..1" />
+          <End Role="TaskAttachments" Type="Self.TaskAttachments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tasks">
+              <PropertyRef Name="TaskId" />
+            </Principal>
+            <Dependent Role="TaskAttachments">
+              <PropertyRef Name="TaskId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TaskAttac__Uploa__797309D9">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
+          <End Role="TaskAttachments" Type="Self.TaskAttachments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="employeeID" />
+            </Principal>
+            <Dependent Role="TaskAttachments">
+              <PropertyRef Name="UploadedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TaskComme__Comme__7A672E12">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
+          <End Role="TaskComments" Type="Self.TaskComments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="employeeID" />
+            </Principal>
+            <Dependent Role="TaskComments">
+              <PropertyRef Name="CommentedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TaskComme__TaskI__7B5B524B">
+          <End Role="Tasks" Type="Self.Tasks" Multiplicity="0..1" />
+          <End Role="TaskComments" Type="Self.TaskComments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tasks">
+              <PropertyRef Name="TaskId" />
+            </Principal>
+            <Dependent Role="TaskComments">
+              <PropertyRef Name="TaskId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TaskNotif__Notif__7C4F7684">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
+          <End Role="TaskNotifications" Type="Self.TaskNotifications" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="employeeID" />
+            </Principal>
+            <Dependent Role="TaskNotifications">
+              <PropertyRef Name="NotifiedTo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TaskNotif__TaskI__7D439ABD">
+          <End Role="Tasks" Type="Self.Tasks" Multiplicity="0..1" />
+          <End Role="TaskNotifications" Type="Self.TaskNotifications" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tasks">
+              <PropertyRef Name="TaskId" />
+            </Principal>
+            <Dependent Role="TaskNotifications">
+              <PropertyRef Name="TaskId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TaskRepor__Gener__7E37BEF6">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
+          <End Role="TaskReports" Type="Self.TaskReports" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="employeeID" />
+            </Principal>
+            <Dependent Role="TaskReports">
+              <PropertyRef Name="GeneratedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tasks__AssignedT__7F2BE32F">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
+          <End Role="Tasks" Type="Self.Tasks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="employeeID" />
+            </Principal>
+            <Dependent Role="Tasks">
+              <PropertyRef Name="AssignedTo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tasks__CreatedBy__00200768">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
+          <End Role="Tasks" Type="Self.Tasks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="employeeID" />
+            </Principal>
+            <Dependent Role="Tasks">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tasks__DependsOn__01142BA1">
+          <End Role="Tasks" Type="Self.Tasks" Multiplicity="0..1" />
+          <End Role="Tasks1" Type="Self.Tasks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tasks">
+              <PropertyRef Name="TaskId" />
+            </Principal>
+            <Dependent Role="Tasks1">
+              <PropertyRef Name="DependsOn" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Leave_leaveTypes">
+          <End Role="LeaveTypes" Type="Self.LeaveTypes" Multiplicity="0..1" />
+          <End Role="Leave" Type="Self.Leave" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LeaveTypes">
+              <PropertyRef Name="leaveTypeID" />
+            </Principal>
+            <Dependent Role="Leave">
+              <PropertyRef Name="leaveTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkflowTable_ApprovalStatus">
+          <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
+          <End Role="WorkflowTable" Type="Self.WorkflowTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="statusID" />
+            </Principal>
+            <Dependent Role="WorkflowTable">
+              <PropertyRef Name="ApprovalStatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkflowTable_Employee">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="1" />
+          <End Role="WorkflowTable" Type="Self.WorkflowTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="employeeID" />
+            </Principal>
+            <Dependent Role="WorkflowTable">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkflowTable_Manager">
+          <End Role="Manager" Type="Self.Manager" Multiplicity="0..1" />
+          <End Role="WorkflowTable" Type="Self.WorkflowTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Manager">
+              <PropertyRef Name="managerID" />
+            </Principal>
+            <Dependent Role="WorkflowTable">
+              <PropertyRef Name="ManagerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="EngineeringClubHRModelStoreContainer">
+          <EntitySet Name="Additions" EntityType="Self.Additions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Deductions" EntityType="Self.Deductions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Expense" EntityType="Self.Expense" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Gender" EntityType="Self.Gender" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GrievanceLogs" EntityType="Self.GrievanceLogs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Grievances" EntityType="Self.Grievances" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GrievanceStatus" EntityType="Self.GrievanceStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Leave" EntityType="Self.Leave" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LeaveTypes" EntityType="Self.LeaveTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Manager" EntityType="Self.Manager" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Payrolls" EntityType="Self.Payrolls" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Scheduling" EntityType="Self.Scheduling" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TaskAttachments" EntityType="Self.TaskAttachments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TaskComments" EntityType="Self.TaskComments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TaskNotifications" EntityType="Self.TaskNotifications" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TaskReports" EntityType="Self.TaskReports" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tasks" EntityType="Self.Tasks" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TeamChat" EntityType="Self.TeamChat" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TimeSchedule" EntityType="Self.TimeSchedule" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WorkflowTable" EntityType="Self.WorkflowTable" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Additions__payro__6B24EA82" Association="Self.FK__Additions__payro__6B24EA82">
+            <End Role="Payrolls" EntitySet="Payrolls" />
+            <End Role="Additions" EntitySet="Additions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Deduction__payro__6C190EBB" Association="Self.FK__Deduction__payro__6C190EBB">
+            <End Role="Payrolls" EntitySet="Payrolls" />
+            <End Role="Deductions" EntitySet="Deductions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Expense__approve__6D0D32F4" Association="Self.FK__Expense__approve__6D0D32F4">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="Expense" EntitySet="Expense" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Expense__employe__6E01572D" Association="Self.FK__Expense__employe__6E01572D">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="Expense" EntitySet="Expense" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Expense__statusI__6EF57B66" Association="Self.FK__Expense__statusI__6EF57B66">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="Expense" EntitySet="Expense" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Leave__approverI__73BA3083" Association="Self.FK__Leave__approverI__73BA3083">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="Leave" EntitySet="Leave" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Leave__employeeI__74AE54BC" Association="Self.FK__Leave__employeeI__74AE54BC">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="Leave" EntitySet="Leave" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Leave__statusID__75A278F5" Association="Self.FK__Leave__statusID__75A278F5">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="Leave" EntitySet="Leave" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Payrolls__employ__778AC167" Association="Self.FK__Payrolls__employ__778AC167">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="Payrolls" EntitySet="Payrolls" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Schedulin__clien__160F4887" Association="Self.FK__Schedulin__clien__160F4887">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="Scheduling" EntitySet="Scheduling" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Schedulin__emplo__17036CC0" Association="Self.FK__Schedulin__emplo__17036CC0">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="Scheduling" EntitySet="Scheduling" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TaskAttac__TaskI__787EE5A0" Association="Self.FK__TaskAttac__TaskI__787EE5A0">
+            <End Role="Tasks" EntitySet="Tasks" />
+            <End Role="TaskAttachments" EntitySet="TaskAttachments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TaskAttac__Uploa__797309D9" Association="Self.FK__TaskAttac__Uploa__797309D9">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="TaskAttachments" EntitySet="TaskAttachments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TaskComme__Comme__7A672E12" Association="Self.FK__TaskComme__Comme__7A672E12">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="TaskComments" EntitySet="TaskComments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TaskComme__TaskI__7B5B524B" Association="Self.FK__TaskComme__TaskI__7B5B524B">
+            <End Role="Tasks" EntitySet="Tasks" />
+            <End Role="TaskComments" EntitySet="TaskComments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TaskNotif__Notif__7C4F7684" Association="Self.FK__TaskNotif__Notif__7C4F7684">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="TaskNotifications" EntitySet="TaskNotifications" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TaskNotif__TaskI__7D439ABD" Association="Self.FK__TaskNotif__TaskI__7D439ABD">
+            <End Role="Tasks" EntitySet="Tasks" />
+            <End Role="TaskNotifications" EntitySet="TaskNotifications" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TaskRepor__Gener__7E37BEF6" Association="Self.FK__TaskRepor__Gener__7E37BEF6">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="TaskReports" EntitySet="TaskReports" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tasks__AssignedT__7F2BE32F" Association="Self.FK__Tasks__AssignedT__7F2BE32F">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="Tasks" EntitySet="Tasks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tasks__CreatedBy__00200768" Association="Self.FK__Tasks__CreatedBy__00200768">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="Tasks" EntitySet="Tasks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tasks__DependsOn__01142BA1" Association="Self.FK__Tasks__DependsOn__01142BA1">
+            <End Role="Tasks" EntitySet="Tasks" />
+            <End Role="Tasks1" EntitySet="Tasks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Leave_leaveTypes" Association="Self.FK_Leave_leaveTypes">
+            <End Role="LeaveTypes" EntitySet="LeaveTypes" />
+            <End Role="Leave" EntitySet="Leave" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkflowTable_ApprovalStatus" Association="Self.FK_WorkflowTable_ApprovalStatus">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="WorkflowTable" EntitySet="WorkflowTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkflowTable_Employee" Association="Self.FK_WorkflowTable_Employee">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="WorkflowTable" EntitySet="WorkflowTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkflowTable_Manager" Association="Self.FK_WorkflowTable_Manager">
+            <End Role="Manager" EntitySet="Manager" />
+            <End Role="WorkflowTable" EntitySet="WorkflowTable" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EngineeringClubHRModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Addition">
+          <Key>
+            <PropertyRef Name="additionID" />
+          </Key>
+          <Property Name="additionID" Type="Int32" Nullable="false" />
+          <Property Name="payrollID" Type="Int32" />
+          <Property Name="additionType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="amount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="additionDate" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Payroll" Relationship="Self.FK__Additions__payro__6B24EA82" FromRole="Additions" ToRole="Payrolls" />
+        </EntityType>
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="clientID" />
+          </Key>
+          <Property Name="clientID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="clientType" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="organizationName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="firstName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="middleName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="lastName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="phoneNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="address" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="city" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="state" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="postalCode" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="country" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="industry" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="contactPerson" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="contactPersonEmail" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="contactPersonPhone" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Schedulings" Relationship="Self.FK__Schedulin__clien__160F4887" FromRole="Client" ToRole="Scheduling" />
+        </EntityType>
+        <EntityType Name="Deduction">
+          <Key>
+            <PropertyRef Name="deductionID" />
+          </Key>
+          <Property Name="deductionID" Type="Int32" Nullable="false" />
+          <Property Name="payrollID" Type="Int32" />
+          <Property Name="deductionType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="amount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="deductionDate" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Payroll" Relationship="Self.FK__Deduction__payro__6C190EBB" FromRole="Deductions" ToRole="Payrolls" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="employeeID" />
+          </Key>
+          <Property Name="employeeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="payrollID" Type="Int32" Nullable="false" />
+          <Property Name="managerID" Type="Int32" Nullable="false" />
+          <Property Name="clientID" Type="Int32" Nullable="false" />
+          <Property Name="firstName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="middleName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="lastName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="preferredName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="gender" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="dateOfBirth" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="identificationNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="maritalStatus" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nationality" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="emailAddress" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="phoneNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="emergencyContactName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="emergencyContactPhone" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="emergencyContactRelationship" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="position" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="jobTitle" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="department" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="hireDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="terminationDate" Type="DateTime" Precision="3" />
+          <Property Name="employmentStatus" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="employmentType" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="workHoursPerWeek" Type="Int32" Nullable="false" />
+          <Property Name="salary" Type="Double" Nullable="false" />
+          <Property Name="hourlyRate" Type="Double" Nullable="false" />
+          <Property Name="address" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="city" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="state" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="postalCode" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="country" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="officeLocation" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="profilePicture" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="active" Type="Boolean" Nullable="false" />
+          <Property Name="OvertimeRate" Type="Decimal" Precision="10" Scale="2" />
+          <NavigationProperty Name="Expenses" Relationship="Self.FK__Expense__approve__6D0D32F4" FromRole="Employees" ToRole="Expense" />
+          <NavigationProperty Name="Expenses1" Relationship="Self.FK__Expense__employe__6E01572D" FromRole="Employees" ToRole="Expense" />
+          <NavigationProperty Name="Leaves" Relationship="Self.FK__Leave__approverI__73BA3083" FromRole="Employees" ToRole="Leave" />
+          <NavigationProperty Name="Leaves1" Relationship="Self.FK__Leave__employeeI__74AE54BC" FromRole="Employees" ToRole="Leave" />
+          <NavigationProperty Name="Payrolls" Relationship="Self.FK__Payrolls__employ__778AC167" FromRole="Employees" ToRole="Payrolls" />
+          <NavigationProperty Name="Schedulings" Relationship="Self.FK__Schedulin__emplo__17036CC0" FromRole="Employees" ToRole="Scheduling" />
+          <NavigationProperty Name="TaskAttachments" Relationship="Self.FK__TaskAttac__Uploa__797309D9" FromRole="Employees" ToRole="TaskAttachments" />
+          <NavigationProperty Name="TaskComments" Relationship="Self.FK__TaskComme__Comme__7A672E12" FromRole="Employees" ToRole="TaskComments" />
+          <NavigationProperty Name="TaskNotifications" Relationship="Self.FK__TaskNotif__Notif__7C4F7684" FromRole="Employees" ToRole="TaskNotifications" />
+          <NavigationProperty Name="TaskReports" Relationship="Self.FK__TaskRepor__Gener__7E37BEF6" FromRole="Employees" ToRole="TaskReports" />
+          <NavigationProperty Name="Tasks" Relationship="Self.FK__Tasks__AssignedT__7F2BE32F" FromRole="Employees" ToRole="Tasks" />
+          <NavigationProperty Name="Tasks1" Relationship="Self.FK__Tasks__CreatedBy__00200768" FromRole="Employees" ToRole="Tasks" />
+          <NavigationProperty Name="WorkflowTables" Relationship="Self.FK_WorkflowTable_Employee" FromRole="Employees" ToRole="WorkflowTable" />
+        </EntityType>
+        <EntityType Name="Expense">
+          <Key>
+            <PropertyRef Name="expenseID" />
+          </Key>
+          <Property Name="expenseID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="employeeID" Type="Int32" />
+          <Property Name="approverID" Type="Int32" />
+          <Property Name="description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="amount" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="expenseDate" Type="DateTime" Precision="3" />
+          <Property Name="statusID" Type="Int32" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK__Expense__approve__6D0D32F4" FromRole="Expense" ToRole="Employees" />
+          <NavigationProperty Name="Employee1" Relationship="Self.FK__Expense__employe__6E01572D" FromRole="Expense" ToRole="Employees" />
+          <NavigationProperty Name="Status" Relationship="Self.FK__Expense__statusI__6EF57B66" FromRole="Expense" ToRole="Status" />
+        </EntityType>
+        <EntityType Name="Gender">
+          <Key>
+            <PropertyRef Name="GenderID" />
+          </Key>
+          <Property Name="GenderID" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GrievanceLog">
+          <Key>
+            <PropertyRef Name="LogID" />
+          </Key>
+          <Property Name="LogID" Type="Int32" Nullable="false" />
+          <Property Name="GrievanceID" Type="Int32" Nullable="false" />
+          <Property Name="LogDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LogDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="Grievance">
+          <Key>
+            <PropertyRef Name="GrievanceID" />
+          </Key>
+          <Property Name="GrievanceID" Type="Int32" Nullable="false" />
+          <Property Name="EmployeeID" Type="Int32" Nullable="false" />
+          <Property Name="GrievanceDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SubmissionDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="StatusID" Type="Int32" Nullable="false" />
+          <Property Name="PerpetratorID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GrievanceStatu">
+          <Key>
+            <PropertyRef Name="StatusID" />
+          </Key>
+          <Property Name="StatusID" Type="Int32" Nullable="false" />
+          <Property Name="StatusName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Leave">
+          <Key>
+            <PropertyRef Name="leaveID" />
+          </Key>
+          <Property Name="leaveID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="employeeID" Type="Int32" />
+          <Property Name="approverID" Type="Int32" />
+          <Property Name="leaveType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="startDate" Type="DateTime" Precision="3" />
+          <Property Name="endDate" Type="DateTime" Precision="3" />
+          <Property Name="statusID" Type="Int32" />
+          <Property Name="leaveTypeID" Type="Int32" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK__Leave__approverI__73BA3083" FromRole="Leave" ToRole="Employees" />
+          <NavigationProperty Name="Employee1" Relationship="Self.FK__Leave__employeeI__74AE54BC" FromRole="Leave" ToRole="Employees" />
+          <NavigationProperty Name="Status" Relationship="Self.FK__Leave__statusID__75A278F5" FromRole="Leave" ToRole="Status" />
+          <NavigationProperty Name="LeaveType1" Relationship="Self.FK_Leave_leaveTypes" FromRole="Leave" ToRole="LeaveTypes" />
+        </EntityType>
+        <EntityType Name="LeaveType">
+          <Key>
+            <PropertyRef Name="leaveTypeID" />
+          </Key>
+          <Property Name="leaveTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="leaveTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Leaves" Relationship="Self.FK_Leave_leaveTypes" FromRole="LeaveTypes" ToRole="Leave" />
+        </EntityType>
+        <EntityType Name="Manager">
+          <Key>
+            <PropertyRef Name="managerID" />
+          </Key>
+          <Property Name="managerID" Type="Int32" Nullable="false" />
+          <Property Name="employeeID" Type="Int32" Nullable="false" />
+          <Property Name="managerFirstName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="managerLastName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="WorkflowTables" Relationship="Self.FK_WorkflowTable_Manager" FromRole="Manager" ToRole="WorkflowTable" />
+        </EntityType>
+        <EntityType Name="Payroll">
+          <Key>
+            <PropertyRef Name="payrollID" />
+          </Key>
+          <Property Name="payrollID" Type="Int32" Nullable="false" />
+          <Property Name="employeeID" Type="Int32" />
+          <Property Name="payPeriodStart" Type="DateTime" Precision="0" />
+          <Property Name="payPeriodEnd" Type="DateTime" Precision="0" />
+          <Property Name="totalHoursWorked" Type="Double" />
+          <Property Name="totalOvertimeWorked" Type="Double" />
+          <NavigationProperty Name="Additions" Relationship="Self.FK__Additions__payro__6B24EA82" FromRole="Payrolls" ToRole="Additions" />
+          <NavigationProperty Name="Deductions" Relationship="Self.FK__Deduction__payro__6C190EBB" FromRole="Payrolls" ToRole="Deductions" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK__Payrolls__employ__778AC167" FromRole="Payrolls" ToRole="Employees" />
+        </EntityType>
+        <EntityType Name="Scheduling">
+          <Key>
+            <PropertyRef Name="scheduleID" />
+          </Key>
+          <Property Name="scheduleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="clientID" Type="Int32" Nullable="false" />
+          <Property Name="employeeID" Type="Int32" Nullable="false" />
+          <Property Name="taskDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="startDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="endDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="duration" Type="Int32" Nullable="false" />
+          <Property Name="repeatWeekly" Type="Boolean" />
+          <NavigationProperty Name="Client" Relationship="Self.FK__Schedulin__clien__160F4887" FromRole="Scheduling" ToRole="Client" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK__Schedulin__emplo__17036CC0" FromRole="Scheduling" ToRole="Employees" />
+        </EntityType>
+        <EntityType Name="Status">
+          <Key>
+            <PropertyRef Name="statusID" />
+          </Key>
+          <Property Name="statusID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="statusDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Expenses" Relationship="Self.FK__Expense__statusI__6EF57B66" FromRole="Status" ToRole="Expense" />
+          <NavigationProperty Name="Leaves" Relationship="Self.FK__Leave__statusID__75A278F5" FromRole="Status" ToRole="Leave" />
+          <NavigationProperty Name="WorkflowTables" Relationship="Self.FK_WorkflowTable_ApprovalStatus" FromRole="Status" ToRole="WorkflowTable" />
+        </EntityType>
+        <EntityType Name="TaskAttachment">
+          <Key>
+            <PropertyRef Name="AttachmentId" />
+          </Key>
+          <Property Name="AttachmentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TaskId" Type="Int32" />
+          <Property Name="DocumentPath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UploadedBy" Type="Int32" />
+          <Property Name="UploadedAt" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK__TaskAttac__Uploa__797309D9" FromRole="TaskAttachments" ToRole="Employees" />
+          <NavigationProperty Name="Task" Relationship="Self.FK__TaskAttac__TaskI__787EE5A0" FromRole="TaskAttachments" ToRole="Tasks" />
+        </EntityType>
+        <EntityType Name="TaskComment">
+          <Key>
+            <PropertyRef Name="CommentId" />
+          </Key>
+          <Property Name="CommentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TaskId" Type="Int32" />
+          <Property Name="CommentText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CommentedBy" Type="Int32" />
+          <Property Name="CommentedAt" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK__TaskComme__Comme__7A672E12" FromRole="TaskComments" ToRole="Employees" />
+          <NavigationProperty Name="Task" Relationship="Self.FK__TaskComme__TaskI__7B5B524B" FromRole="TaskComments" ToRole="Tasks" />
+        </EntityType>
+        <EntityType Name="TaskNotification">
+          <Key>
+            <PropertyRef Name="NotificationId" />
+          </Key>
+          <Property Name="NotificationId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TaskId" Type="Int32" />
+          <Property Name="NotifiedTo" Type="Int32" />
+          <Property Name="NotificationText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsRead" Type="Boolean" />
+          <Property Name="SentAt" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK__TaskNotif__Notif__7C4F7684" FromRole="TaskNotifications" ToRole="Employees" />
+          <NavigationProperty Name="Task" Relationship="Self.FK__TaskNotif__TaskI__7D439ABD" FromRole="TaskNotifications" ToRole="Tasks" />
+        </EntityType>
+        <EntityType Name="TaskReport">
+          <Key>
+            <PropertyRef Name="ReportId" />
+          </Key>
+          <Property Name="ReportId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GeneratedBy" Type="Int32" />
+          <Property Name="ReportContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="GeneratedAt" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK__TaskRepor__Gener__7E37BEF6" FromRole="TaskReports" ToRole="Employees" />
+        </EntityType>
+        <EntityType Name="Task">
+          <Key>
+            <PropertyRef Name="TaskId" />
+          </Key>
+          <Property Name="TaskId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DueDate" Type="DateTime" Precision="3" />
+          <Property Name="PriorityLevel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="AssignedTo" Type="Int32" />
+          <Property Name="DependsOn" Type="Int32" />
+          <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+          <Property Name="ClientID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK__Tasks__AssignedT__7F2BE32F" FromRole="Tasks" ToRole="Employees" />
+          <NavigationProperty Name="Employee1" Relationship="Self.FK__Tasks__CreatedBy__00200768" FromRole="Tasks" ToRole="Employees" />
+          <NavigationProperty Name="TaskAttachments" Relationship="Self.FK__TaskAttac__TaskI__787EE5A0" FromRole="Tasks" ToRole="TaskAttachments" />
+          <NavigationProperty Name="TaskComments" Relationship="Self.FK__TaskComme__TaskI__7B5B524B" FromRole="Tasks" ToRole="TaskComments" />
+          <NavigationProperty Name="TaskNotifications" Relationship="Self.FK__TaskNotif__TaskI__7D439ABD" FromRole="Tasks" ToRole="TaskNotifications" />
+          <NavigationProperty Name="Tasks1" Relationship="Self.FK__Tasks__DependsOn__01142BA1" FromRole="Tasks" ToRole="Tasks1" />
+          <NavigationProperty Name="Task1" Relationship="Self.FK__Tasks__DependsOn__01142BA1" FromRole="Tasks1" ToRole="Tasks" />
+        </EntityType>
+        <EntityType Name="TeamChat">
+          <Key>
+            <PropertyRef Name="chatID" />
+          </Key>
+          <Property Name="chatID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="senderID" Type="Int32" Nullable="false" />
+          <Property Name="message" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="timestamp" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="TimeSchedule">
+          <Key>
+            <PropertyRef Name="scheduleID" />
+          </Key>
+          <Property Name="scheduleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="employeeID" Type="Int32" Nullable="false" />
+          <Property Name="managerID" Type="Int32" Nullable="false" />
+          <Property Name="startTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="endTime" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="WorkflowTable">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmployeeID" Type="Int32" Nullable="false" />
+          <Property Name="EmployeeFirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeeLastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ManagerID" Type="Int32" />
+          <Property Name="ManagerFirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ManagerLastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ApplicationType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LeaveOrExpenseID" Type="Int32" />
+          <Property Name="ApplicationDate" Type="DateTime" Precision="0" />
+          <Property Name="ApprovalStatusID" Type="Int32" />
+          <Property Name="ApprovalStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ManagerActionDate" Type="DateTime" Precision="0" />
+          <Property Name="Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK_WorkflowTable_Employee" FromRole="WorkflowTable" ToRole="Employees" />
+          <NavigationProperty Name="Manager" Relationship="Self.FK_WorkflowTable_Manager" FromRole="WorkflowTable" ToRole="Manager" />
+          <NavigationProperty Name="Status" Relationship="Self.FK_WorkflowTable_ApprovalStatus" FromRole="WorkflowTable" ToRole="Status" />
+        </EntityType>
+        <Association Name="FK__Additions__payro__6B24EA82">
+          <End Role="Payrolls" Type="Self.Payroll" Multiplicity="0..1" />
+          <End Role="Additions" Type="Self.Addition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Payrolls">
+              <PropertyRef Name="payrollID" />
+            </Principal>
+            <Dependent Role="Additions">
+              <PropertyRef Name="payrollID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Schedulin__clien__160F4887">
+          <End Role="Client" Type="Self.Client" Multiplicity="1" />
+          <End Role="Scheduling" Type="Self.Scheduling" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="clientID" />
+            </Principal>
+            <Dependent Role="Scheduling">
+              <PropertyRef Name="clientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Deduction__payro__6C190EBB">
+          <End Role="Payrolls" Type="Self.Payroll" Multiplicity="0..1" />
+          <End Role="Deductions" Type="Self.Deduction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Payrolls">
+              <PropertyRef Name="payrollID" />
+            </Principal>
+            <Dependent Role="Deductions">
+              <PropertyRef Name="payrollID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Expense__approve__6D0D32F4">
+          <End Role="Employees" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="Expense" Type="Self.Expense" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="employeeID" />
+            </Principal>
+            <Dependent Role="Expense">
+              <PropertyRef Name="approverID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Expense__employe__6E01572D">
+          <End Role="Employees" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="Expense" Type="Self.Expense" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="employeeID" />
+            </Principal>
+            <Dependent Role="Expense">
+              <PropertyRef Name="employeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Leave__approverI__73BA3083">
+          <End Role="Employees" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="Leave" Type="Self.Leave" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="employeeID" />
+            </Principal>
+            <Dependent Role="Leave">
+              <PropertyRef Name="approverID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Leave__employeeI__74AE54BC">
+          <End Role="Employees" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="Leave" Type="Self.Leave" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="employeeID" />
+            </Principal>
+            <Dependent Role="Leave">
+              <PropertyRef Name="employeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Payrolls__employ__778AC167">
+          <End Role="Employees" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="Payrolls" Type="Self.Payroll" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="employeeID" />
+            </Principal>
+            <Dependent Role="Payrolls">
+              <PropertyRef Name="employeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Schedulin__emplo__17036CC0">
+          <End Role="Employees" Type="Self.Employee" Multiplicity="1" />
+          <End Role="Scheduling" Type="Self.Scheduling" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="employeeID" />
+            </Principal>
+            <Dependent Role="Scheduling">
+              <PropertyRef Name="employeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TaskAttac__Uploa__797309D9">
+          <End Role="Employees" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="TaskAttachments" Type="Self.TaskAttachment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="employeeID" />
+            </Principal>
+            <Dependent Role="TaskAttachments">
+              <PropertyRef Name="UploadedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TaskComme__Comme__7A672E12">
+          <End Role="Employees" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="TaskComments" Type="Self.TaskComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="employeeID" />
+            </Principal>
+            <Dependent Role="TaskComments">
+              <PropertyRef Name="CommentedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TaskNotif__Notif__7C4F7684">
+          <End Role="Employees" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="TaskNotifications" Type="Self.TaskNotification" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="employeeID" />
+            </Principal>
+            <Dependent Role="TaskNotifications">
+              <PropertyRef Name="NotifiedTo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TaskRepor__Gener__7E37BEF6">
+          <End Role="Employees" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="TaskReports" Type="Self.TaskReport" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="employeeID" />
+            </Principal>
+            <Dependent Role="TaskReports">
+              <PropertyRef Name="GeneratedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tasks__AssignedT__7F2BE32F">
+          <End Role="Employees" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="Tasks" Type="Self.Task" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="employeeID" />
+            </Principal>
+            <Dependent Role="Tasks">
+              <PropertyRef Name="AssignedTo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tasks__CreatedBy__00200768">
+          <End Role="Employees" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="Tasks" Type="Self.Task" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="employeeID" />
+            </Principal>
+            <Dependent Role="Tasks">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkflowTable_Employee">
+          <End Role="Employees" Type="Self.Employee" Multiplicity="1" />
+          <End Role="WorkflowTable" Type="Self.WorkflowTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="employeeID" />
+            </Principal>
+            <Dependent Role="WorkflowTable">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Expense__statusI__6EF57B66">
+          <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
+          <End Role="Expense" Type="Self.Expense" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="statusID" />
+            </Principal>
+            <Dependent Role="Expense">
+              <PropertyRef Name="statusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Leave__statusID__75A278F5">
+          <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
+          <End Role="Leave" Type="Self.Leave" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="statusID" />
+            </Principal>
+            <Dependent Role="Leave">
+              <PropertyRef Name="statusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Leave_leaveTypes">
+          <End Role="LeaveTypes" Type="Self.LeaveType" Multiplicity="0..1" />
+          <End Role="Leave" Type="Self.Leave" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LeaveTypes">
+              <PropertyRef Name="leaveTypeID" />
+            </Principal>
+            <Dependent Role="Leave">
+              <PropertyRef Name="leaveTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkflowTable_Manager">
+          <End Role="Manager" Type="Self.Manager" Multiplicity="0..1" />
+          <End Role="WorkflowTable" Type="Self.WorkflowTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Manager">
+              <PropertyRef Name="managerID" />
+            </Principal>
+            <Dependent Role="WorkflowTable">
+              <PropertyRef Name="ManagerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkflowTable_ApprovalStatus">
+          <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
+          <End Role="WorkflowTable" Type="Self.WorkflowTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="statusID" />
+            </Principal>
+            <Dependent Role="WorkflowTable">
+              <PropertyRef Name="ApprovalStatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TaskAttac__TaskI__787EE5A0">
+          <End Role="Tasks" Type="Self.Task" Multiplicity="0..1" />
+          <End Role="TaskAttachments" Type="Self.TaskAttachment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tasks">
+              <PropertyRef Name="TaskId" />
+            </Principal>
+            <Dependent Role="TaskAttachments">
+              <PropertyRef Name="TaskId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TaskComme__TaskI__7B5B524B">
+          <End Role="Tasks" Type="Self.Task" Multiplicity="0..1" />
+          <End Role="TaskComments" Type="Self.TaskComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tasks">
+              <PropertyRef Name="TaskId" />
+            </Principal>
+            <Dependent Role="TaskComments">
+              <PropertyRef Name="TaskId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TaskNotif__TaskI__7D439ABD">
+          <End Role="Tasks" Type="Self.Task" Multiplicity="0..1" />
+          <End Role="TaskNotifications" Type="Self.TaskNotification" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tasks">
+              <PropertyRef Name="TaskId" />
+            </Principal>
+            <Dependent Role="TaskNotifications">
+              <PropertyRef Name="TaskId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tasks__DependsOn__01142BA1">
+          <End Role="Tasks" Type="Self.Task" Multiplicity="0..1" />
+          <End Role="Tasks1" Type="Self.Task" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tasks">
+              <PropertyRef Name="TaskId" />
+            </Principal>
+            <Dependent Role="Tasks1">
+              <PropertyRef Name="DependsOn" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="EngineeringClubHREntities4" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Additions" EntityType="Self.Addition" />
+          <EntitySet Name="Clients" EntityType="Self.Client" />
+          <EntitySet Name="Deductions" EntityType="Self.Deduction" />
+          <EntitySet Name="Employees" EntityType="Self.Employee" />
+          <EntitySet Name="Expenses" EntityType="Self.Expense" />
+          <EntitySet Name="Genders" EntityType="Self.Gender" />
+          <EntitySet Name="GrievanceLogs" EntityType="Self.GrievanceLog" />
+          <EntitySet Name="Grievances" EntityType="Self.Grievance" />
+          <EntitySet Name="GrievanceStatus" EntityType="Self.GrievanceStatu" />
+          <EntitySet Name="Leaves" EntityType="Self.Leave" />
+          <EntitySet Name="LeaveTypes" EntityType="Self.LeaveType" />
+          <EntitySet Name="Managers" EntityType="Self.Manager" />
+          <EntitySet Name="Payrolls" EntityType="Self.Payroll" />
+          <EntitySet Name="Schedulings" EntityType="Self.Scheduling" />
+          <EntitySet Name="Status" EntityType="Self.Status" />
+          <EntitySet Name="TaskAttachments" EntityType="Self.TaskAttachment" />
+          <EntitySet Name="TaskComments" EntityType="Self.TaskComment" />
+          <EntitySet Name="TaskNotifications" EntityType="Self.TaskNotification" />
+          <EntitySet Name="TaskReports" EntityType="Self.TaskReport" />
+          <EntitySet Name="Tasks" EntityType="Self.Task" />
+          <EntitySet Name="TeamChats" EntityType="Self.TeamChat" />
+          <EntitySet Name="TimeSchedules" EntityType="Self.TimeSchedule" />
+          <EntitySet Name="WorkflowTables" EntityType="Self.WorkflowTable" />
+          <AssociationSet Name="FK__Additions__payro__6B24EA82" Association="Self.FK__Additions__payro__6B24EA82">
+            <End Role="Payrolls" EntitySet="Payrolls" />
+            <End Role="Additions" EntitySet="Additions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Schedulin__clien__160F4887" Association="Self.FK__Schedulin__clien__160F4887">
+            <End Role="Client" EntitySet="Clients" />
+            <End Role="Scheduling" EntitySet="Schedulings" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Deduction__payro__6C190EBB" Association="Self.FK__Deduction__payro__6C190EBB">
+            <End Role="Payrolls" EntitySet="Payrolls" />
+            <End Role="Deductions" EntitySet="Deductions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Expense__approve__6D0D32F4" Association="Self.FK__Expense__approve__6D0D32F4">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="Expense" EntitySet="Expenses" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Expense__employe__6E01572D" Association="Self.FK__Expense__employe__6E01572D">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="Expense" EntitySet="Expenses" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Leave__approverI__73BA3083" Association="Self.FK__Leave__approverI__73BA3083">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="Leave" EntitySet="Leaves" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Leave__employeeI__74AE54BC" Association="Self.FK__Leave__employeeI__74AE54BC">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="Leave" EntitySet="Leaves" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Payrolls__employ__778AC167" Association="Self.FK__Payrolls__employ__778AC167">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="Payrolls" EntitySet="Payrolls" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Schedulin__emplo__17036CC0" Association="Self.FK__Schedulin__emplo__17036CC0">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="Scheduling" EntitySet="Schedulings" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TaskAttac__Uploa__797309D9" Association="Self.FK__TaskAttac__Uploa__797309D9">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="TaskAttachments" EntitySet="TaskAttachments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TaskComme__Comme__7A672E12" Association="Self.FK__TaskComme__Comme__7A672E12">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="TaskComments" EntitySet="TaskComments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TaskNotif__Notif__7C4F7684" Association="Self.FK__TaskNotif__Notif__7C4F7684">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="TaskNotifications" EntitySet="TaskNotifications" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TaskRepor__Gener__7E37BEF6" Association="Self.FK__TaskRepor__Gener__7E37BEF6">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="TaskReports" EntitySet="TaskReports" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tasks__AssignedT__7F2BE32F" Association="Self.FK__Tasks__AssignedT__7F2BE32F">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="Tasks" EntitySet="Tasks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tasks__CreatedBy__00200768" Association="Self.FK__Tasks__CreatedBy__00200768">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="Tasks" EntitySet="Tasks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkflowTable_Employee" Association="Self.FK_WorkflowTable_Employee">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="WorkflowTable" EntitySet="WorkflowTables" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Expense__statusI__6EF57B66" Association="Self.FK__Expense__statusI__6EF57B66">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="Expense" EntitySet="Expenses" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Leave__statusID__75A278F5" Association="Self.FK__Leave__statusID__75A278F5">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="Leave" EntitySet="Leaves" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Leave_leaveTypes" Association="Self.FK_Leave_leaveTypes">
+            <End Role="LeaveTypes" EntitySet="LeaveTypes" />
+            <End Role="Leave" EntitySet="Leaves" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkflowTable_Manager" Association="Self.FK_WorkflowTable_Manager">
+            <End Role="Manager" EntitySet="Managers" />
+            <End Role="WorkflowTable" EntitySet="WorkflowTables" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkflowTable_ApprovalStatus" Association="Self.FK_WorkflowTable_ApprovalStatus">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="WorkflowTable" EntitySet="WorkflowTables" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TaskAttac__TaskI__787EE5A0" Association="Self.FK__TaskAttac__TaskI__787EE5A0">
+            <End Role="Tasks" EntitySet="Tasks" />
+            <End Role="TaskAttachments" EntitySet="TaskAttachments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TaskComme__TaskI__7B5B524B" Association="Self.FK__TaskComme__TaskI__7B5B524B">
+            <End Role="Tasks" EntitySet="Tasks" />
+            <End Role="TaskComments" EntitySet="TaskComments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TaskNotif__TaskI__7D439ABD" Association="Self.FK__TaskNotif__TaskI__7D439ABD">
+            <End Role="Tasks" EntitySet="Tasks" />
+            <End Role="TaskNotifications" EntitySet="TaskNotifications" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tasks__DependsOn__01142BA1" Association="Self.FK__Tasks__DependsOn__01142BA1">
+            <End Role="Tasks" EntitySet="Tasks" />
+            <End Role="Tasks1" EntitySet="Tasks" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="EngineeringClubHRModelStoreContainer" CdmEntityContainer="EngineeringClubHREntities4">
+          <EntitySetMapping Name="Additions">
+            <EntityTypeMapping TypeName="EngineeringClubHRModel.Addition">
+              <MappingFragment StoreEntitySet="Additions">
+                <ScalarProperty Name="additionID" ColumnName="additionID" />
+                <ScalarProperty Name="payrollID" ColumnName="payrollID" />
+                <ScalarProperty Name="additionType" ColumnName="additionType" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="additionDate" ColumnName="additionDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Clients">
+            <EntityTypeMapping TypeName="EngineeringClubHRModel.Client">
+              <MappingFragment StoreEntitySet="Client">
+                <ScalarProperty Name="clientID" ColumnName="clientID" />
+                <ScalarProperty Name="clientType" ColumnName="clientType" />
+                <ScalarProperty Name="organizationName" ColumnName="organizationName" />
+                <ScalarProperty Name="firstName" ColumnName="firstName" />
+                <ScalarProperty Name="middleName" ColumnName="middleName" />
+                <ScalarProperty Name="lastName" ColumnName="lastName" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="phoneNumber" ColumnName="phoneNumber" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="postalCode" ColumnName="postalCode" />
+                <ScalarProperty Name="country" ColumnName="country" />
+                <ScalarProperty Name="industry" ColumnName="industry" />
+                <ScalarProperty Name="contactPerson" ColumnName="contactPerson" />
+                <ScalarProperty Name="contactPersonEmail" ColumnName="contactPersonEmail" />
+                <ScalarProperty Name="contactPersonPhone" ColumnName="contactPersonPhone" />
+                <ScalarProperty Name="active" ColumnName="active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Deductions">
+            <EntityTypeMapping TypeName="EngineeringClubHRModel.Deduction">
+              <MappingFragment StoreEntitySet="Deductions">
+                <ScalarProperty Name="deductionID" ColumnName="deductionID" />
+                <ScalarProperty Name="payrollID" ColumnName="payrollID" />
+                <ScalarProperty Name="deductionType" ColumnName="deductionType" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="deductionDate" ColumnName="deductionDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="EngineeringClubHRModel.Employee">
+              <MappingFragment StoreEntitySet="Employees">
+                <ScalarProperty Name="employeeID" ColumnName="employeeID" />
+                <ScalarProperty Name="payrollID" ColumnName="payrollID" />
+                <ScalarProperty Name="managerID" ColumnName="managerID" />
+                <ScalarProperty Name="clientID" ColumnName="clientID" />
+                <ScalarProperty Name="firstName" ColumnName="firstName" />
+                <ScalarProperty Name="middleName" ColumnName="middleName" />
+                <ScalarProperty Name="lastName" ColumnName="lastName" />
+                <ScalarProperty Name="preferredName" ColumnName="preferredName" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="dateOfBirth" ColumnName="dateOfBirth" />
+                <ScalarProperty Name="identificationNumber" ColumnName="identificationNumber" />
+                <ScalarProperty Name="maritalStatus" ColumnName="maritalStatus" />
+                <ScalarProperty Name="nationality" ColumnName="nationality" />
+                <ScalarProperty Name="emailAddress" ColumnName="emailAddress" />
+                <ScalarProperty Name="phoneNumber" ColumnName="phoneNumber" />
+                <ScalarProperty Name="emergencyContactName" ColumnName="emergencyContactName" />
+                <ScalarProperty Name="emergencyContactPhone" ColumnName="emergencyContactPhone" />
+                <ScalarProperty Name="emergencyContactRelationship" ColumnName="emergencyContactRelationship" />
+                <ScalarProperty Name="position" ColumnName="position" />
+                <ScalarProperty Name="jobTitle" ColumnName="jobTitle" />
+                <ScalarProperty Name="department" ColumnName="department" />
+                <ScalarProperty Name="hireDate" ColumnName="hireDate" />
+                <ScalarProperty Name="terminationDate" ColumnName="terminationDate" />
+                <ScalarProperty Name="employmentStatus" ColumnName="employmentStatus" />
+                <ScalarProperty Name="employmentType" ColumnName="employmentType" />
+                <ScalarProperty Name="workHoursPerWeek" ColumnName="workHoursPerWeek" />
+                <ScalarProperty Name="salary" ColumnName="salary" />
+                <ScalarProperty Name="hourlyRate" ColumnName="hourlyRate" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="postalCode" ColumnName="postalCode" />
+                <ScalarProperty Name="country" ColumnName="country" />
+                <ScalarProperty Name="officeLocation" ColumnName="officeLocation" />
+                <ScalarProperty Name="profilePicture" ColumnName="profilePicture" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="OvertimeRate" ColumnName="OvertimeRate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Expenses">
+            <EntityTypeMapping TypeName="EngineeringClubHRModel.Expense">
+              <MappingFragment StoreEntitySet="Expense">
+                <ScalarProperty Name="expenseID" ColumnName="expenseID" />
+                <ScalarProperty Name="employeeID" ColumnName="employeeID" />
+                <ScalarProperty Name="approverID" ColumnName="approverID" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="expenseDate" ColumnName="expenseDate" />
+                <ScalarProperty Name="statusID" ColumnName="statusID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Genders">
+            <EntityTypeMapping TypeName="EngineeringClubHRModel.Gender">
+              <MappingFragment StoreEntitySet="Gender">
+                <ScalarProperty Name="GenderID" ColumnName="GenderID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GrievanceLogs">
+            <EntityTypeMapping TypeName="EngineeringClubHRModel.GrievanceLog">
+              <MappingFragment StoreEntitySet="GrievanceLogs">
+                <ScalarProperty Name="LogID" ColumnName="LogID" />
+                <ScalarProperty Name="GrievanceID" ColumnName="GrievanceID" />
+                <ScalarProperty Name="LogDescription" ColumnName="LogDescription" />
+                <ScalarProperty Name="LogDate" ColumnName="LogDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Grievances">
+            <EntityTypeMapping TypeName="EngineeringClubHRModel.Grievance">
+              <MappingFragment StoreEntitySet="Grievances">
+                <ScalarProperty Name="GrievanceID" ColumnName="GrievanceID" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="GrievanceDescription" ColumnName="GrievanceDescription" />
+                <ScalarProperty Name="SubmissionDate" ColumnName="SubmissionDate" />
+                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+                <ScalarProperty Name="PerpetratorID" ColumnName="PerpetratorID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GrievanceStatus">
+            <EntityTypeMapping TypeName="EngineeringClubHRModel.GrievanceStatu">
+              <MappingFragment StoreEntitySet="GrievanceStatus">
+                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+                <ScalarProperty Name="StatusName" ColumnName="StatusName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Leaves">
+            <EntityTypeMapping TypeName="EngineeringClubHRModel.Leave">
+              <MappingFragment StoreEntitySet="Leave">
+                <ScalarProperty Name="leaveID" ColumnName="leaveID" />
+                <ScalarProperty Name="employeeID" ColumnName="employeeID" />
+                <ScalarProperty Name="approverID" ColumnName="approverID" />
+                <ScalarProperty Name="leaveType" ColumnName="leaveType" />
+                <ScalarProperty Name="startDate" ColumnName="startDate" />
+                <ScalarProperty Name="endDate" ColumnName="endDate" />
+                <ScalarProperty Name="statusID" ColumnName="statusID" />
+                <ScalarProperty Name="leaveTypeID" ColumnName="leaveTypeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LeaveTypes">
+            <EntityTypeMapping TypeName="EngineeringClubHRModel.LeaveType">
+              <MappingFragment StoreEntitySet="LeaveTypes">
+                <ScalarProperty Name="leaveTypeID" ColumnName="leaveTypeID" />
+                <ScalarProperty Name="leaveTypeName" ColumnName="leaveTypeName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Managers">
+            <EntityTypeMapping TypeName="EngineeringClubHRModel.Manager">
+              <MappingFragment StoreEntitySet="Manager">
+                <ScalarProperty Name="managerID" ColumnName="managerID" />
+                <ScalarProperty Name="employeeID" ColumnName="employeeID" />
+                <ScalarProperty Name="managerFirstName" ColumnName="managerFirstName" />
+                <ScalarProperty Name="managerLastName" ColumnName="managerLastName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Payrolls">
+            <EntityTypeMapping TypeName="EngineeringClubHRModel.Payroll">
+              <MappingFragment StoreEntitySet="Payrolls">
+                <ScalarProperty Name="payrollID" ColumnName="payrollID" />
+                <ScalarProperty Name="employeeID" ColumnName="employeeID" />
+                <ScalarProperty Name="payPeriodStart" ColumnName="payPeriodStart" />
+                <ScalarProperty Name="payPeriodEnd" ColumnName="payPeriodEnd" />
+                <ScalarProperty Name="totalHoursWorked" ColumnName="totalHoursWorked" />
+                <ScalarProperty Name="totalOvertimeWorked" ColumnName="totalOvertimeWorked" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Schedulings">
+            <EntityTypeMapping TypeName="EngineeringClubHRModel.Scheduling">
+              <MappingFragment StoreEntitySet="Scheduling">
+                <ScalarProperty Name="scheduleID" ColumnName="scheduleID" />
+                <ScalarProperty Name="clientID" ColumnName="clientID" />
+                <ScalarProperty Name="employeeID" ColumnName="employeeID" />
+                <ScalarProperty Name="taskDescription" ColumnName="taskDescription" />
+                <ScalarProperty Name="startDate" ColumnName="startDate" />
+                <ScalarProperty Name="endDate" ColumnName="endDate" />
+                <ScalarProperty Name="duration" ColumnName="duration" />
+                <ScalarProperty Name="repeatWeekly" ColumnName="repeatWeekly" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Status">
+            <EntityTypeMapping TypeName="EngineeringClubHRModel.Status">
+              <MappingFragment StoreEntitySet="Status">
+                <ScalarProperty Name="statusID" ColumnName="statusID" />
+                <ScalarProperty Name="statusDescription" ColumnName="statusDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TaskAttachments">
+            <EntityTypeMapping TypeName="EngineeringClubHRModel.TaskAttachment">
+              <MappingFragment StoreEntitySet="TaskAttachments">
+                <ScalarProperty Name="AttachmentId" ColumnName="AttachmentId" />
+                <ScalarProperty Name="TaskId" ColumnName="TaskId" />
+                <ScalarProperty Name="DocumentPath" ColumnName="DocumentPath" />
+                <ScalarProperty Name="UploadedBy" ColumnName="UploadedBy" />
+                <ScalarProperty Name="UploadedAt" ColumnName="UploadedAt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TaskComments">
+            <EntityTypeMapping TypeName="EngineeringClubHRModel.TaskComment">
+              <MappingFragment StoreEntitySet="TaskComments">
+                <ScalarProperty Name="CommentId" ColumnName="CommentId" />
+                <ScalarProperty Name="TaskId" ColumnName="TaskId" />
+                <ScalarProperty Name="CommentText" ColumnName="CommentText" />
+                <ScalarProperty Name="CommentedBy" ColumnName="CommentedBy" />
+                <ScalarProperty Name="CommentedAt" ColumnName="CommentedAt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TaskNotifications">
+            <EntityTypeMapping TypeName="EngineeringClubHRModel.TaskNotification">
+              <MappingFragment StoreEntitySet="TaskNotifications">
+                <ScalarProperty Name="NotificationId" ColumnName="NotificationId" />
+                <ScalarProperty Name="TaskId" ColumnName="TaskId" />
+                <ScalarProperty Name="NotifiedTo" ColumnName="NotifiedTo" />
+                <ScalarProperty Name="NotificationText" ColumnName="NotificationText" />
+                <ScalarProperty Name="IsRead" ColumnName="IsRead" />
+                <ScalarProperty Name="SentAt" ColumnName="SentAt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TaskReports">
+            <EntityTypeMapping TypeName="EngineeringClubHRModel.TaskReport">
+              <MappingFragment StoreEntitySet="TaskReports">
+                <ScalarProperty Name="ReportId" ColumnName="ReportId" />
+                <ScalarProperty Name="GeneratedBy" ColumnName="GeneratedBy" />
+                <ScalarProperty Name="ReportContent" ColumnName="ReportContent" />
+                <ScalarProperty Name="GeneratedAt" ColumnName="GeneratedAt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tasks">
+            <EntityTypeMapping TypeName="EngineeringClubHRModel.Task">
+              <MappingFragment StoreEntitySet="Tasks">
+                <ScalarProperty Name="TaskId" ColumnName="TaskId" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="DueDate" ColumnName="DueDate" />
+                <ScalarProperty Name="PriorityLevel" ColumnName="PriorityLevel" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="AssignedTo" ColumnName="AssignedTo" />
+                <ScalarProperty Name="DependsOn" ColumnName="DependsOn" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TeamChats">
+            <EntityTypeMapping TypeName="EngineeringClubHRModel.TeamChat">
+              <MappingFragment StoreEntitySet="TeamChat">
+                <ScalarProperty Name="chatID" ColumnName="chatID" />
+                <ScalarProperty Name="senderID" ColumnName="senderID" />
+                <ScalarProperty Name="message" ColumnName="message" />
+                <ScalarProperty Name="timestamp" ColumnName="timestamp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TimeSchedules">
+            <EntityTypeMapping TypeName="EngineeringClubHRModel.TimeSchedule">
+              <MappingFragment StoreEntitySet="TimeSchedule">
+                <ScalarProperty Name="scheduleID" ColumnName="scheduleID" />
+                <ScalarProperty Name="employeeID" ColumnName="employeeID" />
+                <ScalarProperty Name="managerID" ColumnName="managerID" />
+                <ScalarProperty Name="startTime" ColumnName="startTime" />
+                <ScalarProperty Name="endTime" ColumnName="endTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WorkflowTables">
+            <EntityTypeMapping TypeName="EngineeringClubHRModel.WorkflowTable">
+              <MappingFragment StoreEntitySet="WorkflowTable">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="EmployeeFirstName" ColumnName="EmployeeFirstName" />
+                <ScalarProperty Name="EmployeeLastName" ColumnName="EmployeeLastName" />
+                <ScalarProperty Name="ManagerID" ColumnName="ManagerID" />
+                <ScalarProperty Name="ManagerFirstName" ColumnName="ManagerFirstName" />
+                <ScalarProperty Name="ManagerLastName" ColumnName="ManagerLastName" />
+                <ScalarProperty Name="ApplicationType" ColumnName="ApplicationType" />
+                <ScalarProperty Name="LeaveOrExpenseID" ColumnName="LeaveOrExpenseID" />
+                <ScalarProperty Name="ApplicationDate" ColumnName="ApplicationDate" />
+                <ScalarProperty Name="ApprovalStatusID" ColumnName="ApprovalStatusID" />
+                <ScalarProperty Name="ApprovalStatus" ColumnName="ApprovalStatus" />
+                <ScalarProperty Name="ManagerActionDate" ColumnName="ManagerActionDate" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

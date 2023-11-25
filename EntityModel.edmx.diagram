@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3952401c30dc495a86f6f6410b094871" Name="Diagram1">
+        <EntityTypeShape EntityType="EngineeringClubHRModel.Addition" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EngineeringClubHRModel.AdditionType" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EngineeringClubHRModel.Client" Width="1.5" PointX="3.75" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EngineeringClubHRModel.Deduction" Width="1.5" PointX="5.25" PointY="29" IsExpanded="true" />
+        <EntityTypeShape EntityType="EngineeringClubHRModel.DeductionType" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EngineeringClubHRModel.Employee" Width="1.5" PointX="0.75" PointY="17.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EngineeringClubHRModel.Expense" Width="1.5" PointX="3" PointY="21.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EngineeringClubHRModel.Gender" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EngineeringClubHRModel.GrievanceAction" Width="1.5" PointX="8.25" PointY="22" IsExpanded="true" />
+        <EntityTypeShape EntityType="EngineeringClubHRModel.GrievanceLog" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EngineeringClubHRModel.Grievance" Width="1.5" PointX="6" PointY="21.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EngineeringClubHRModel.GrievanceStatu" Width="1.5" PointX="3.75" PointY="26.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EngineeringClubHRModel.Leave" Width="1.5" PointX="3" PointY="17.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EngineeringClubHRModel.leaveType" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EngineeringClubHRModel.Manager" Width="1.5" PointX="5.75" PointY="38" IsExpanded="true" />
+        <EntityTypeShape EntityType="EngineeringClubHRModel.Payroll" Width="1.5" PointX="3" PointY="28.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EngineeringClubHRModel.PublicHoliday" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EngineeringClubHRModel.Scheduling" Width="1.5" PointX="6" PointY="17.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EngineeringClubHRModel.ShiftAssignment" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EngineeringClubHRModel.Shift" Width="1.5" PointX="2.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EngineeringClubHRModel.ShiftType" Width="1.5" PointX="6.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EngineeringClubHRModel.Status" Width="1.5" PointX="0.75" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="EngineeringClubHRModel.TaskAttachment" Width="1.5" PointX="5.25" PointY="34" IsExpanded="true" />
+        <EntityTypeShape EntityType="EngineeringClubHRModel.TaskComment" Width="1.5" PointX="8.25" PointY="35" IsExpanded="true" />
+        <EntityTypeShape EntityType="EngineeringClubHRModel.TaskNotification" Width="1.5" PointX="8.25" PointY="30.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EngineeringClubHRModel.TaskReport" Width="1.5" PointX="3" PointY="45.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EngineeringClubHRModel.Task" Width="1.5" PointX="3" PointY="48.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EngineeringClubHRModel.TeamChat" Width="1.5" PointX="4.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EngineeringClubHRModel.TimeSchedule" Width="1.5" PointX="6.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EngineeringClubHRModel.WorkflowTable" Width="1.5" PointX="8" PointY="25.875" IsExpanded="true" />
+        <AssociationConnector Association="EngineeringClubHRModel.FK__Schedulin__clien__0E6E26BF" ManuallyRouted="false" />
+        <AssociationConnector Association="EngineeringClubHRModel.FK__Deduction__payro__71D1E811" ManuallyRouted="false" />
+        <AssociationConnector Association="EngineeringClubHRModel.FK__Expense__approve__72C60C4A" ManuallyRouted="false" />
+        <AssociationConnector Association="EngineeringClubHRModel.FK__Expense__employe__73BA3083" ManuallyRouted="false" />
+        <AssociationConnector Association="EngineeringClubHRModel.FK__Grievance__Emplo__76969D2E" ManuallyRouted="false" />
+        <AssociationConnector Association="EngineeringClubHRModel.FK__Leave__approverI__787EE5A0" ManuallyRouted="false" />
+        <AssociationConnector Association="EngineeringClubHRModel.FK__Leave__employeeI__797309D9" ManuallyRouted="false" />
+        <AssociationConnector Association="EngineeringClubHRModel.FK__Payrolls__employ__7B5B524B" ManuallyRouted="false" />
+        <AssociationConnector Association="EngineeringClubHRModel.FK__Schedulin__emplo__0F624AF8" ManuallyRouted="false" />
+        <AssociationConnector Association="EngineeringClubHRModel.FK__TaskAttac__Uploa__7D439ABD" ManuallyRouted="false" />
+        <AssociationConnector Association="EngineeringClubHRModel.FK__TaskComme__Comme__7E37BEF6" ManuallyRouted="false" />
+        <AssociationConnector Association="EngineeringClubHRModel.FK__TaskNotif__Notif__00200768" ManuallyRouted="false" />
+        <AssociationConnector Association="EngineeringClubHRModel.FK__TaskRepor__Gener__02084FDA" ManuallyRouted="false" />
+        <AssociationConnector Association="EngineeringClubHRModel.FK__Tasks__AssignedT__02FC7413" ManuallyRouted="false" />
+        <AssociationConnector Association="EngineeringClubHRModel.FK__Tasks__CreatedBy__03F0984C" ManuallyRouted="false" />
+        <AssociationConnector Association="EngineeringClubHRModel.FK_WorkflowTable_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="EngineeringClubHRModel.FK__Expense__statusI__74AE54BC" ManuallyRouted="false" />
+        <AssociationConnector Association="EngineeringClubHRModel.FK__Grievance__Griev__75A278F5" ManuallyRouted="false" />
+        <AssociationConnector Association="EngineeringClubHRModel.FK__Grievance__Statu__778AC167" ManuallyRouted="false" />
+        <AssociationConnector Association="EngineeringClubHRModel.FK__Leave__statusID__7A672E12" ManuallyRouted="false" />
+        <AssociationConnector Association="EngineeringClubHRModel.FK_WorkflowTable_Manager" ManuallyRouted="false" />
+        <AssociationConnector Association="EngineeringClubHRModel.FK_WorkflowTable_ApprovalStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="EngineeringClubHRModel.FK__TaskAttac__TaskI__7C4F7684" ManuallyRouted="false" />
+        <AssociationConnector Association="EngineeringClubHRModel.FK__TaskComme__TaskI__7F2BE32F" ManuallyRouted="false" />
+        <AssociationConnector Association="EngineeringClubHRModel.FK__TaskNotif__TaskI__01142BA1" ManuallyRouted="false" />
+        <AssociationConnector Association="EngineeringClubHRModel.FK__Tasks__DependsOn__04E4BC85" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
